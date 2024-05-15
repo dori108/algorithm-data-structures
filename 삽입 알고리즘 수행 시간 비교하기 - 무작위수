@@ -1,0 +1,27 @@
+import time
+import random
+
+def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and key < arr[j]:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+    return arr
+
+# 10,000개의 무작위 정수 생성
+random_integers = [random.randint(0, 10000) for _ in range(10000)]
+
+# 시간 측정 시작
+start_time = time.time()
+
+# 삽입 정렬 실행
+sorted_integers = insertion_sort(random_integers[:])
+
+# 시간 측정 종료
+end_time = time.time()
+
+print("Sorted array of 10,000 random integers:", sorted_integers[:10], "...")  # 정렬된 배열의 일부분만 출력
+print("Execution time for sorting 10,000 random integers: {:.6f} seconds".format(end_time - start_time))
