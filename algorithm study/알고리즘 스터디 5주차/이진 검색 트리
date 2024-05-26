@@ -1,1 +1,33 @@
+import sys
+sys.setrecursionlimit(10**6)
+
+# 숫자를 저장할 리스트 생성
+num_list = []
+
+# 숫자를 입력받고 리스트에 저장
+while True:
+    try:
+        num = input()  # 입력 받기
+        if num == "":  # 빈 문자열을 입력받으면 종료
+            break
+        num_list.append(int(num))  # 정수로 변환하여 리스트에 추가
+    except:
+        break
+
+# 후위 순회 함수 정의
+def postorder(first, end):
+    if first > end:  # 첫 번째 인덱스가 끝 인덱스보다 크면 종료
+        return
+    mid = end + 1  # 루트보다 큰 값이 존재하지 않을 경우를 대비   
+    for i in range(first + 1, end + 1):
+        if num_list[first] < num_list[i]:  # 현재 값보다 큰 값이 나오면 중간값 결정
+            mid = i
+            break
+    
+    postorder(first + 1, mid - 1)  # 왼쪽 서브트리 호출
+    postorder(mid, end)  # 오른쪽 서브트리 호출
+    print(num_list[first])  # 루트 노드 출력
+
+# 후위 순회 함수 호출
+postorder(0, len(num_list) - 1)
 
