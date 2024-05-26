@@ -1,1 +1,14 @@
+while True:
+    s = input()
+    if s == "0":
+        break
+
+    c = 0
+    while s != s[::-1]:  # 문자열을 반전시켜서 원래 문자열과 비교
+        l = len(s)
+        i = int(s) + 1
+        c += 1
+        t = str(i)
+        s = "0" * (l - len(t)) + t
+    print(c)
 
