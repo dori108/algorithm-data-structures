@@ -1,1 +1,17 @@
+T = int(input())
+
+for _ in range(T):
+    N = int(input())
+    k1 = input().split()  
+    k2 = input().split()  
+
+    idx = [k2.index(w) for w in k1]  
+
+    s = input().split()  
+
+    result = [s[i] for i in idx]  
+
+    for word in result:
+        print(word, end=' ')  
+    print()  
 
