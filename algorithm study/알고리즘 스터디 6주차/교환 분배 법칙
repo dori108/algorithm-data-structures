@@ -1,4 +1,4 @@
-def count_valid_triples(N):
+def countt(N):
     count = 0
 
     # Case 1: a = 0
@@ -19,7 +19,7 @@ def count_valid_triples(N):
 # 입력 받기
 N = int(input())
 # 가능한 정수 쌍의 개수를 계산
-result = count_valid_triples(N)
+result = countt(N)
 # 결과 출력
 print(result)
 
