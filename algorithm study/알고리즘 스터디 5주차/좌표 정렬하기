@@ -6,3 +6,31 @@ for _ in range(n):
 couple.sort()
 for i in couple:
     print(=i[0], i[1])
+---
+
+# 숫자 쌍의 개수 입력
+n = int(input())
+
+# 숫자 쌍을 저장할 리스트 생성
+pairs = []
+
+# 숫자 쌍 입력받아 리스트에 저장하면서 정렬하기
+for _ in range(n):
+    a, b = map(int, input().split())
+    pairs.append((a, b))
+    pairs.sort()  # 새로운 숫자 쌍을 추가할 때마다 정렬
+
+# 정렬된 숫자 쌍 출력
+for pair in pairs:
+    print(pair[0], pair[1])
+---
+
+# 숫자 쌍의 개수 입력
+n = int(input())
+
+# 숫자 쌍을 저장할 리스트 생성 및 입력받기
+pairs = [tuple(map(int, input().split())) for _ in range(n)]
+
+# 정렬 후 출력
+for pair in sorted(pairs):
+    print(*pair)
