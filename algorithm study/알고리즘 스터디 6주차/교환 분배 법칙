@@ -2,7 +2,6 @@ def countt(N):
     count = 0
 
     # Case 1: a = 0
-    # b와 c는 -N에서 N 사이의 모든 값을 가질 수 있습니다.
     count += (2 * N + 1) ** 2
 
     # Case 2: a != 0
@@ -16,10 +15,7 @@ def countt(N):
 
     return count
 
-# 입력 받기
 N = int(input())
-# 가능한 정수 쌍의 개수를 계산
 result = countt(N)
-# 결과 출력
 print(result)
 
