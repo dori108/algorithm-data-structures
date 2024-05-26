@@ -1,1 +1,17 @@
 
+N = int(input())
+count = 0
+
+for a in range(-N, N + 1):
+    for b in range(-N, N + 1):
+        if a * (a - 1) % 2 == 0:
+            c_min = -a * (a - 1) // 2
+            c_max = a * (a - 1) // 2
+        else:
+            c_min = -(a * (a - 1) + 1) // 2
+            c_max = (a * (a - 1) + 1) // 2
+     
+        if c_min <= b <= c_max:
+            count += 1
+print(count)
+
