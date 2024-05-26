@@ -1,1 +1,8 @@
-
+n = int(input())
+couple = []
+for _ in range(n):
+    a, b = map(int, input().split())
+    couple.append((a, b))
+couple.sort()
+for i in couple:
+    print(=i[0], i[1])
