@@ -1,0 +1,13 @@
+6주차 좌표 정렬
+
+n = int(input())
+pairs = [tuple(map(int, input().split())) for _ in range(n)]
+for pair in sorted(pairs):
+    print(*pair)
+
+해설
+
+pairs를 sorted한 배열에 대해서 한 원소를 pair이라 가정하구
+pair에 있는 수 두 개를 나란히 출력하기 위해 *을 사용함다
+그냥 튜플같은거 연달아 출력하는 용도
+
