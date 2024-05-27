@@ -1,0 +1,30 @@
+5주차 펠린드로미터
+
+import sys
+input = sys.stdin.read
+
+def is_palindrome(s):
+    return s == s[::-1]
+
+def find_distance(num):
+    count = 0
+    original_len = len(num)
+    while not is_palindrome(num):
+        num = str(int(num) + 1).zfill(original_len)
+        count += 1
+    return count
+
+data = input().split()
+
+for line in data:
+    if line == "0":
+        break
+    print(find_distance(line))
+
+저게 문자열 앞에
+0으로 채워주는 역할이라고 하더라구요
+그래서 000123이면 숫자가 123이 되니까 빈숫자만큼 0을 3번 만들어주는 것
+
+zfill 함수 사용해서 풀어도 가능함
+
+
