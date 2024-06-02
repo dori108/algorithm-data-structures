@@ -1,0 +1,11 @@
+X, Y = map(int, input().split())
+price= X / Y
+N = int(input())
+min_price= price
+for _ in range(N):
+    Xi, Yi = map(int, input().split())
+    price_gram = Xi / Yi
+    if price_gram < min_price:
+        min_price = price_gram
+cheap = min_price * 1000
+print(f"{cheap:.2f}")
