@@ -1,1 +1,24 @@
-num =int(input())
+def luck(ticket):
+    n = len(ticket) // 2  
+    left = ticket[:n] 
+    right = ticket[n:]
+
+    left_sum = sum(int(char) for char in left)
+    right_sum = sum(int(char) for char in right)
+    return left_sum == right_sum
+
+def luck_len(s):
+    max_len = 0 
+    n = len(s)
+    for start in range(n):
+        for end in range(start + 2, n + 1, 2):
+            sub = s[start:end]
+            if luck(sub):
+                max_len = max(max_len, end - start)
+
+    return max_len
+
+s = input().strip()
+
+result = luck_len(s)
+print(result)
