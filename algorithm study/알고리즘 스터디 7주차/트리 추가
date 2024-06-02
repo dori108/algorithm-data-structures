@@ -1,0 +1,6 @@
+def preorder(root):
+    if root != '.':
+        print(root, end='')  # root
+        preorder(tree[root][0])  # left
+        preorder(tree[root][1])  # right
+전위, 중위, 후위는 이제 순서 아실테니 이 코드만 외워두고 root left right 바꿔가면서 써먹으면 편합니당
