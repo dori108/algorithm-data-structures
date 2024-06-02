@@ -1,0 +1,10 @@
+words = [input().strip() for _ in range(5)]
+length = max(len(word) for word in words)
+result = []
+
+for j in range(length):
+    for word in words:
+        if j < len(word): 
+            result.append(word[j])
+
+print(''.join(result))
