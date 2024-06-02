@@ -22,3 +22,20 @@ s = input().strip()
 
 result = luck_len(s)
 print(result)
+
+
+# 선배님들 피드백
+s = input().strip()
+
+def ticket(s):
+    max_length = 0
+    for i in range(len(s)):
+        for j in range(i+2, len(s)+1, 2):
+            mid = (i+j) // 2
+            left_sum = sum(int(c) for c in s[i:mid])
+            right_sum = sum(int(c) for c in s[mid:j])
+            if left_sum == right_sum:
+                max_length = max(max_length, j-i)
+    return max_length
+
+print(ticket(s))
