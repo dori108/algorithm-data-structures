@@ -1,1 +1,89 @@
+def dfs(graph, start, visited):
+    stack = [start]
+    visited[start] = True
+    count = 0
+
+    while stack:
+        node = stack.pop()
+        count += 1
+        for neighbor in graph[node]:
+            if not visited[neighbor]:
+                stack.append(neighbor)
+                visited[neighbor] = True
+                
+    return count - 1
+
+n = int(input())
+m = int(input())
+
+graph = [[] for _ in range(n + 1)]
+
+for _ in range(m):
+    u, v = map(int, input().split())
+    graph[u].append(v)
+    graph[v].append(u)
+
+visited = [False] * (n + 1)
+
+result = dfs(graph, 1, visited)
+
+print(result)
+
+주석 버전
+# DFS 함수 정의
+def dfs(graph, start, visited):
+    # 시작 노드를 스택에 추가합니다.
+    stack = [start]
+    # 시작 노드를 방문했음을 표시합니다.
+    visited[start] = True
+    # 감염된 컴퓨터 수를 셀 변수입니다.
+    count = 0
+
+    # 스택이 비어있지 않는 동안 반복합니다.
+    while stack:
+        # 스택의 맨 위에 있는 노드를 꺼냅니다.
+        node = stack.pop()
+        # 감염된 컴퓨터 수를 증가시킵니다.
+        count += 1
+        # 현재 노드와 연결된 모든 이웃 노드를 확인합니다.
+        for neighbor in graph[node]:
+            # 이웃 노드가 방문되지 않았다면
+            if not visited[neighbor]:
+                # 이웃 노드를 스택에 추가하고 방문했음을 표시합니다.
+                stack.append(neighbor)
+                visited[neighbor] = True
+                
+    # 시작 노드를 제외한 감염된 컴퓨터 수를 반환합니다.
+    return count - 1
+
+# 입력 받기
+# 첫 줄에는 컴퓨터의 수를 입력 받습니다.
+n = int(input())  # 예: 7
+# 둘째 줄에는 직접 연결된 컴퓨터 쌍의 수를 입력 받습니다.
+m = int(input())  # 예: 6
+
+# 그래프 초기화
+# 각 컴퓨터에 연결된 컴퓨터 리스트를 저장할 리스트를 만듭니다.
+graph = [[] for _ in range(n + 1)]
+
+# 간선 정보 입력 받기
+# m개의 직접 연결된 컴퓨터 쌍을 입력 받습니다.
+for _ in range(m):
+    # 각 쌍의 컴퓨터 번호를 입력 받습니다.
+    u, v = map(int, input().split())  # 예: 1 2, 2 3, ...
+    # 그래프에 연결 정보를 추가합니다. (양방향)
+    graph[u].append(v)
+    graph[v].append(u)
+
+# 방문 기록 초기화
+# 각 컴퓨터의 방문 여부를 저장할 리스트를 만듭니다.
+visited = [False] * (n + 1)
+
+# 1번 컴퓨터에서 시작하여 DFS 수행
+result = dfs(graph, 1, visited)
+
+# 결과 출력
+# 감염된 컴퓨터 수를 출력합니다.
+print(result)
+
 팀원 피드백
