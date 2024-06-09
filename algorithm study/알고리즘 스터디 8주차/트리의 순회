@@ -16,10 +16,8 @@ n개의 정점을 갖는 이진 트리의 정점에 1부터 n까지의 번호가
 인오더에서 해당 루트 노드를 기준으로 왼쪽 서브트리와 오른쪽 서브트리로 분할할 수 있습니다.
 재귀적으로 서브트리를 처리하여 프리오더를 출력합니다.
 
-
 import sys
 sys.setrecursionlimit(200000)
-input = sys.stdin.read
 
 def build_preorder(in_start, in_end, post_start, post_end):
     if in_start > in_end or post_start > post_end:
@@ -35,9 +33,11 @@ def build_preorder(in_start, in_end, post_start, post_end):
     build_preorder(in_start, root_index - 1, post_start, post_start + left_size - 1)
     build_preorder(root_index + 1, in_end, post_start + left_size, post_end - 1)
 
-n = int(input())
-inorder = list(map(int, input().split()))
-postorder = list(map(int, input().split()))
+input_data = sys.stdin.read().split('\n')
+
+n = int(input_data[0])
+inorder = list(map(int, input_data[1].split()))
+postorder = list(map(int, input_data[2].split()))
 
 inorder_index = {value: idx for idx, value in enumerate(inorder)}
 
@@ -45,7 +45,6 @@ preorder = []
 build_preorder(0, n - 1, 0, n - 1)
 
 print(' '.join(map(str, preorder)))
-
 
 인덱스 매핑: inorder_index 딕셔너리는 인오더 배열에서 값에 대한 인덱스를 저장합니다. 이를 통해 각 값의 위치를 빠르게 찾을 수 있습니다.
 재귀 함수 정의: build_preorder 함수는 주어진 범위 내에서 프리오더 순서를 구성합니다.
